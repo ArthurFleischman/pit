@@ -20,7 +20,7 @@ ps2: you should have a file called templates.json in your home file
 `--lang` define project language
 `--type` define project type (api,webapp ...)
 
-## template.json format
+## .template.json format
 
 ```json
 [
