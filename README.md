@@ -10,18 +10,19 @@ ps: you should have GOBIN in your path
 
 ps2: you should have a file called templates.json in your home file
 
+## commands
 
-## commands 
 `new`
 
 ## flags
+
 `--name` define project name
-	`--lang` define project language
+`--lang` define project language
 `--type` define project type (api,webapp ...)
 
-
 ## template.json format
-	```
+
+```json
 [
 	{
 	"Go": {
