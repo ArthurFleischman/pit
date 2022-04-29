@@ -1,0 +1,6 @@
+{
+    "go":{
+        "default_handlers":["h1","h2","h3"],
+        "val":1
+    }
+}
