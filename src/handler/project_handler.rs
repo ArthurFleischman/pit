@@ -18,7 +18,7 @@ fn get_lang_structure(lang: String){
     let config_path =format!("./config/{}.json",lang);
     let mut file = fs::File::open(config_path).expect("could not open file");
     let mut  data = String::new();
-    file.read_to_string(&mut data).expect("could not reaad data");
-    println!("{}",data);
+    file.read_to_string(&mut data).expect("could not read data");
+    
 }
 
