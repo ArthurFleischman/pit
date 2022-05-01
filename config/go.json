@@ -1,6 +1,23 @@
 {
     "go":{
-        "default_handlers":["h1","h2","h3"],
-        "val":1
+        "type":[
+            {
+                "api":{
+                    "initial_commands":["go mod init .", "git init"],
+                    "default_structure":[
+                        "./config",
+                        "./config/dev",
+                        "./config/prod",
+                        "./test/dev",
+                        "./test/prod",
+                        "./db",
+                        "./router",
+                        "./entities",
+                        "./handlers"
+                    ],
+                    "default_files":["./main.go","./.env.prod","./.env.dev","README.md"]
+                }
+            }
+        ]
     }
 }
