@@ -1,15 +1,17 @@
-use std::{fs, io::Read};
+use std::fs;
+use std::io::Read;
 use serde_json::Value;
 
 use crate::args::project_args::ProjectArgs;
-
+use file_handler::FileData;
 use super::file_handler;
+
 
 pub fn handle_project(args: ProjectArgs){
     create_root(args.name, args.path);
     let raw_json_data = get_lang_structure(args.lang);
-    let parsed_data = parse_by_app_type(args.typ, raw_json_data);
-
+    let app = get_app_type(args.typ, raw_json_data).expect("[SERDE] could not find app type");
+    println!("{:?}",app);
 }
 
 fn create_root(name: String, path:String){
@@ -26,8 +28,20 @@ fn get_lang_structure(lang: String) -> Value{
     file.read_to_string(&mut string_data).expect("[FILE READER] could not read data");
     serde_json::from_str(string_data.as_str()).expect("[SERDE] could not parse file to json")
 }
-fn parse_by_app_type(app_type: String, raw_json_data: Value) -> FileData{
-    let app_data = raw_json_data[app_type].as_object().expect("[SERDE} could not parse json app to map");
-    // file_handler::new(app_data["initial_commands"].as_array_mut(), default_structure, default_files)
+fn get_app_type(app_type: String, raw_json_data: Value) -> Option<FileData>{
+    let typ_list = raw_json_data.as_object().unwrap().get("types").expect("[SERDE] could not fetch app types");
+    let typs: Vec<FileData> = serde_json::from_value(typ_list.clone()).unwrap();
+    for val in typs{
+        if val.typ == app_type{
+            
+            return Option::Some(val);
+        }
+        else{
+            return Option::None;
+        }
+    }
+    return Option::None;
+
 }
+
 

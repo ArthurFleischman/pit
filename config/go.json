@@ -1,23 +1,23 @@
 {
-    "go":{
-        "type":[
-            {
-                "api":{
-                    "initial_commands":["go mod init .", "git init"],
-                    "default_structure":[
-                        "./config",
-                        "./config/dev",
-                        "./config/prod",
-                        "./test/dev",
-                        "./test/prod",
-                        "./db",
-                        "./router",
-                        "./entities",
-                        "./handlers"
-                    ],
-                    "default_files":["./main.go","./.env.prod","./.env.dev","README.md"]
-                }
-            }
-        ]
-    }
+   
+    "types":[
+        {
+            "typ":"api",
+            "initial_commands":["go mod init .", "git init"],
+            "default_structure":[
+                "./config",
+                "./config/dev",
+                "./config/prod",
+                "./test/dev",
+                "./test/prod",
+                "./db",
+                "./router",
+                "./entities",
+                "./handlers"
+            ],
+            "default_files":["./main.go","./.env.prod","./.env.dev","README.md"]
+        }
+        
+    ]
+    
 }
